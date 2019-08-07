@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function computerPlay(){
+            const RPS = ["rock", "paper", "scissors"];
+            let rand = RPS[Math.floor(Math.random()*RPS.length)];
+            return rand;
+        }
+        
+        function playRound(computerSelection, playerSelection){
+            //let playerSelection = playerSelection.toLowerCase();//
+
+            switch (computerSelection + "|" + playerSelection) {
+                case "rock|paper":
+                console.log("You win! Paper beats rock");
+                break;
+                case "rock|scissors":
+                console.log("You lose! Rock beats scissors");
+                break;
+                case "paper|rock":
+                console.log("You lose! Paper beats rock");
+                break;
+                case "paper|scissors":
+                console.log("You win! Scissors beat paper");
+                break;
+                case "scissors|rock":
+                console.log("You win! Rock beats scissors");
+                break;
+                case "scissors|paper":
+                console.log("You lose! Scissors beat paper");
+                break;
+                default:
+                console.log("It's a tie!");
+            }
+
+        }
+        const playerSelection = "rock";
+        const computerSelection = computerPlay();
+        console.log(playRound(computerSelection, playerSelection));
+    </script>
+</body>
+</html>
