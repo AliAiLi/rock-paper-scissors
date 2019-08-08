@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let playerScore = 0;
+    let cpuScore = 0;
+
+    function cpuPlay(){
+            const RPS = ["rock", "paper", "scissors"];
+            let rand = RPS[Math.floor(Math.random()*RPS.length)];
+            return rand;
+
+    }
+    
+    
+
+    function oneRound(cpuSelection, playerSelection){
+        switch (cpuSelection + "|" + playerSelection) {
+               case "rock|paper":
+               playerScore++;
+               return "You win! Paper beats rock";
+               
+               break;
+               case "rock|scissors":
+               cpuScore++;
+               return "You lose! Rock beats scissors";
+               
+               break;
+               case "paper|rock":
+               cpuScore++;
+               return "You lose! Paper beats rock";
+               
+               break;
+               case "paper|scissors":
+               playerScore++;
+               return "You win! Scissors beat paper";
+                
+               break;
+               case "scissors|rock":
+               playerScore++;
+               return "You win! Rock beats scissors";
+               
+               break;
+               case "scissors|paper":
+               cpuScore++;
+               return "You lose! Scissors beat paper";
+               
+               break;
+               default:
+               return "It's a tie!";
+           }
+
+
+
+    }
+    function oneGame(){
+        alert("Round " +(count+1));
+        console.log("Round " +(count+1));
+        function getSelection(){
+            input = prompt("Choose rock, paper or scissors?").toLowerCase();
+            if (input !== "rock" || input !== "paper" || input !=="scissors"){
+                alert("You have to choose rock, paper or scissors!")
+                input = prompt("Choose rock, paper or scissors?").toLowerCase();
+        
+            }
+        }
+
+        const playerSelection = getSelection();
+
+        const cpuSelection = cpuPlay();
+
+        console.log("You play " +playerSelection);
+        console.log("The computer plays "+ cpuSelection);
+        console.log(oneRound(cpuSelection, playerSelection));
+    }
+        
+    for (count = 0; count < 5; count++){
+        oneGame()
+    }
+
+    function winner(){
+        console.log("Your score is " + playerScore);
+        console.log("The computer score is " + cpuScore);
+        if (playerScore > cpuScore){
+            return "You win!"
+        }
+        else if (cpuScore > playerScore){
+            return "You lose!"
+        }
+        else {
+            return "It's a tie!"
+        }
+    }
+
+    console.log(winner())
+    </script>
+</body>
+</html>
